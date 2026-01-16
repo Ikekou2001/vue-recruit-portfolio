@@ -1,8 +1,12 @@
 <script setup lang="ts">
 import { Icon } from '@iconify/vue'
-import { onMounted } from 'vue'
+import { computed } from 'vue'
+import { useTheme } from 'vuetify'
 import Tweet from 'vue-tweet'
 // import plumiumeHeader from '@/assets/plumiume-header.png'
+
+const theme = useTheme()
+const tweetTheme = computed(() => theme.global.current.value.dark ? 'dark' : 'light')
 
 const features = [
   {

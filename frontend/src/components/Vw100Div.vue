@@ -21,10 +21,6 @@ onMounted(() => {
 onUnmounted(() => {
   window.removeEventListener('resize', updateWidths)
 })
-
-const toggleVisibility = () => {
-  isVisible.value = !isVisible.value
-}
 </script>
 
 <template>
