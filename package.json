@@ -1,0 +1,25 @@
+{
+  "name": "vue-recruit-portfolio",
+  "version": "1.0.0",
+  "description": "Technical Portfolio with Vue.js and Azure Functions",
+  "main": "index.js",
+  "scripts": {
+    "dev": "pnpm --parallel -r dev",
+    "build": "pnpm -r build",
+    "test": "pnpm -r test",
+    "lint": "pnpm -r lint"
+  },
+  "keywords": [
+    "vue",
+    "azure-functions",
+    "typescript",
+    "portfolio",
+    "recruitment"
+  ],
+  "author": "plumiume.com",
+  "license": "Apache-2.0",
+  "packageManager": "pnpm@10.22.0",
+  "dependencies": {
+    "create-vite": "^8.2.0"
+  }
+}
