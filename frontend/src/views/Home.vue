@@ -170,7 +170,7 @@ const features = [
         <v-card elevation="2" rounded="lg" class="pa-4">
           <div class="tweet-container">
             <!-- ツイートIDを指定してください -->
-            <Tweet tweet-id="2012144255079522690" />
+            <Tweet tweet-id="2012144255079522690" :theme="tweetTheme" />
           </div>
         </v-card>
       </v-col>
