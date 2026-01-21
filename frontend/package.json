@@ -22,8 +22,7 @@
     "simple-icons": "^16.5.0",
     "vue": "^3.5.24",
     "vue-router": "^4.6.4",
-    "vue-tweet": "^2.3.3",
-    "vue-tweet-embed": "^2.4.0"
+    "vue-tweet": "^2.3.3"
   },
   "devDependencies": {
     "@mdi/font": "^7.4.47",
