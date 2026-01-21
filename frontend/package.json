@@ -15,13 +15,15 @@
   "dependencies": {
     "@iconify/vue": "^5.0.0",
     "@popperjs/core": "^2.11.8",
+    "aos": "^2.3.4",
     "axios": "^1.13.2",
     "bootstrap": "^5.3.8",
     "pinia": "^3.0.4",
     "simple-icons": "^16.5.0",
     "vue": "^3.5.24",
     "vue-router": "^4.6.4",
-    "vue-tweet": "^2.3.3"
+    "vue-tweet": "^2.3.3",
+    "vue-tweet-embed": "^2.4.0"
   },
   "devDependencies": {
     "@mdi/font": "^7.4.47",

@@ -5,7 +5,7 @@ import { ref } from 'vue'
 
 const otherSkillsPanel = ref<number[]>([])
 
-// 主要スキル（6個を厳選）
+// 主要スキル(6個を厳選)
 const mainSkills = [
   { name: 'Python', category: 'backend', icon: 'python', color: '#3776ab' },
   { name: 'PyTorch', category: 'backend', icon: 'pytorch', color: '#ee4c2c' },
@@ -30,21 +30,24 @@ const mainSkills = [
     </v-row>
 
     <!-- 主要スキル（6個） -->
-    <v-row class="mb-8">
+    <v-row class="mb-8" data-aos="fade-left">
       <v-col cols="12">
         <h2 class="text-h4 font-weight-bold mb-4">主要スキル</h2>
         <v-row>
           <v-col
-            v-for="skill in mainSkills"
+            v-for="(skill, index) in mainSkills"
             :key="skill.name"
             cols="6"
             sm="4"
             md="2"
+            data-aos="fade-left"
+            :data-aos-delay="index * 100"
           >
             <v-card
-              class="text-center pa-4"
+              class="text-center pa-4 skill-card"
               elevation="2"
               rounded="lg"
+              hover
             >
               <Icon :icon="`simple-icons:${skill.icon}`" width="48" height="48" :style="{ color: skill.color }" class="mb-2" />
               <div class="text-subtitle-1 font-weight-bold">{{ skill.name }}</div>
@@ -75,7 +78,7 @@ const mainSkills = [
     </v-row>
 
     <!-- カテゴリ別スキル -->
-    <v-row class="mb-8">
+    <v-row class="mb-8" data-aos="fade-left" data-aos-delay="200">
       <v-col cols="12">
         <h2 class="text-h4 font-weight-bold mb-6">カテゴリ別スキル</h2>
       </v-col>
@@ -83,7 +86,7 @@ const mainSkills = [
 
     <!-- バックエンド -->
     <v-row class="mb-8">
-      <v-col cols="12" md="6">
+      <v-col cols="12" md="6" data-aos="fade-left" data-aos-delay="300">
         <div class="d-flex align-center mb-4">
           <Icon icon="mdi:server" width="24" height="24" class="mr-3" />
           <h3 class="text-h5 font-weight-bold">バックエンド</h3>
@@ -92,7 +95,7 @@ const mainSkills = [
       </v-col>
 
       <!-- フロントエンド -->
-      <v-col cols="12" md="6">
+      <v-col cols="12" md="6" data-aos="fade-left" data-aos-delay="300">
         <div class="d-flex align-center mb-4">
           <Icon icon="mdi:monitor" width="24" height="24" class="mr-3" />
           <h3 class="text-h5 font-weight-bold">フロントエンド</h3>
@@ -103,7 +106,7 @@ const mainSkills = [
 
     <!-- DevOps & IoT -->
     <v-row class="mb-8">
-      <v-col cols="12" md="6">
+      <v-col cols="12" md="6" data-aos="fade-left" data-aos-delay="400">
         <div class="d-flex align-center mb-4">
           <Icon icon="mdi:infinity" width="24" height="24" class="mr-3" />
           <h3 class="text-h5 font-weight-bold">DevOps</h3>
@@ -111,7 +114,7 @@ const mainSkills = [
         <TechStack variant="list" filter="devops" :sort-by-level="true" />
       </v-col>
 
-      <v-col cols="12" md="6">
+      <v-col cols="12" md="6" data-aos="fade-left" data-aos-delay="400">
         <div class="d-flex align-center mb-4">
           <Icon icon="mdi:chip" width="24" height="24" class="mr-3" />
           <h3 class="text-h5 font-weight-bold">IoT・組み込み</h3>
@@ -122,7 +125,7 @@ const mainSkills = [
 
     <!-- 開発ツール -->
     <v-row class="mb-8">
-      <v-col cols="12">
+      <v-col cols="12" data-aos="fade-left" data-aos-delay="500">
         <div class="d-flex align-center mb-4">
           <Icon icon="mdi:tools" width="24" height="24" class="mr-3" />
           <h3 class="text-h5 font-weight-bold">開発ツール</h3>
@@ -133,7 +136,7 @@ const mainSkills = [
 
     <!-- 資格・認定 -->
     <v-row class="mb-8">
-      <v-col cols="12">
+      <v-col cols="12" data-aos="fade-left" data-aos-delay="600">
         <div class="d-flex align-center mb-4">
           <Icon icon="mdi:certificate" width="24" height="24" class="mr-3" />
           <h3 class="text-h5 font-weight-bold">資格・認定</h3>
@@ -144,7 +147,7 @@ const mainSkills = [
 
     <!-- 競技プログラミング -->
     <v-row class="mb-8">
-      <v-col cols="12">
+      <v-col cols="12" data-aos="fade-left" data-aos-delay="700">
         <div class="d-flex align-center mb-4">
           <Icon icon="mdi:code-braces" width="24" height="24" class="mr-3" />
           <h3 class="text-h5 font-weight-bold">競技プログラミング</h3>
@@ -155,7 +158,7 @@ const mainSkills = [
 
     <!-- 習熟度の説明 -->
     <v-row class="mt-12">
-      <v-col cols="12" md="8" offset-md="2">
+      <v-col cols="12" md="8" offset-md="2" data-aos="fade-left" data-aos-delay="800">
         <v-alert
           type="info"
           variant="tonal"
@@ -186,5 +189,15 @@ const mainSkills = [
 <style scoped>
 .modern-alert {
   border-radius: 16px !important;
+}
+
+/* スキルカードのホバーエフェクト */
+.skill-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15) !important;
 }
 </style>

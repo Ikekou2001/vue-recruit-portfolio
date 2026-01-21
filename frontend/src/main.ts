@@ -3,6 +3,10 @@ import App from './App.vue'
 import router from './router'
 import './style.css'
 
+// AOS (Animate On Scroll)
+import AOS from 'aos'
+import 'aos/dist/aos.css'
+
 // Vuetify
 import 'vuetify/styles'
 import { createVuetify } from 'vuetify'
@@ -53,4 +57,13 @@ const vuetify = createVuetify({
   }
 })
 
-createApp(App).use(router).use(vuetify).mount('#app')
+const app = createApp(App)
+app.use(router).use(vuetify).mount('#app')
+
+// AOSを初期化
+AOS.init({
+  duration: 800,
+  easing: 'ease-out',
+  once: true,
+  offset: 100
+})

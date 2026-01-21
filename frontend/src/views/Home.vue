@@ -1,12 +1,101 @@
 <script setup lang="ts">
 import { Icon } from '@iconify/vue'
-import { computed } from 'vue'
+import { computed, onMounted, onUnmounted, ref } from 'vue'
 import { useTheme } from 'vuetify'
 import Tweet from 'vue-tweet'
-// import plumiumeHeader from '@/assets/plumiume-header.png'
 
 const theme = useTheme()
 const tweetTheme = computed(() => theme.global.current.value.dark ? 'dark' : 'light')
+
+// Canvas要素の参照
+const particleCanvas = ref<HTMLCanvasElement | null>(null)
+let animationFrameId: number | null = null
+
+// パーティクルクラス
+class Particle {
+  x: number
+  y: number
+  size: number
+  speedX: number
+  speedY: number
+  opacity: number
+  
+  constructor(canvasWidth: number, canvasHeight: number) {
+    this.x = Math.random() * canvasWidth
+    this.y = Math.random() * canvasHeight
+    this.size = Math.random() * 3 + 1 // 1-4px
+    this.speedX = Math.random() * 0.5 - 0.25 // -0.25 ~ 0.25
+    this.speedY = Math.random() * 0.5 - 0.25
+    this.opacity = Math.random() * 0.5 + 0.2 // 0.2-0.7
+  }
+  
+  update(canvasWidth: number, canvasHeight: number) {
+    this.x += this.speedX
+    this.y += this.speedY
+    
+    // 画面外に出たら反対側から出現
+    if (this.x > canvasWidth) this.x = 0
+    if (this.x < 0) this.x = canvasWidth
+    if (this.y > canvasHeight) this.y = 0
+    if (this.y < 0) this.y = canvasHeight
+  }
+  
+  draw(ctx: CanvasRenderingContext2D) {
+    ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity})`
+    ctx.beginPath()
+    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2)
+    ctx.fill()
+  }
+}
+
+// パーティクルアニメーションの初期化
+const initParticles = () => {
+  const canvas = particleCanvas.value
+  if (!canvas) return
+  
+  const ctx = canvas.getContext('2d')
+  if (!ctx) return
+  
+  // Canvasサイズを親要素に合わせる
+  const resizeCanvas = () => {
+    canvas.width = canvas.offsetWidth
+    canvas.height = canvas.offsetHeight
+  }
+  resizeCanvas()
+  window.addEventListener('resize', resizeCanvas)
+  
+  // パーティクル配列
+  const particles: Particle[] = []
+  const particleCount = 80 // パーティクル数
+  
+  for (let i = 0; i < particleCount; i++) {
+    particles.push(new Particle(canvas.width, canvas.height))
+  }
+  
+  // アニメーションループ
+  const animate = () => {
+    ctx.clearRect(0, 0, canvas.width, canvas.height)
+    
+    particles.forEach(particle => {
+      particle.update(canvas.width, canvas.height)
+      particle.draw(ctx)
+    })
+    
+    animationFrameId = requestAnimationFrame(animate)
+  }
+  
+  animate()
+}
+
+onMounted(() => {
+  initParticles()
+})
+
+onUnmounted(() => {
+  if (animationFrameId !== null) {
+    cancelAnimationFrame(animationFrameId)
+  }
+})
 
 const features = [
   {
@@ -30,6 +119,7 @@ const features = [
 
 <template>
   <section class="hero-section">
+    <canvas ref="particleCanvas" class="particle-canvas"></canvas>
     <v-container fluid class="hero-container" >
       <v-row align="center" justify="center" class="fill-height">
         <v-col cols="12" class="text-center">
@@ -195,9 +285,22 @@ const features = [
   justify-content: center;
 }
 
+/* パーティクルキャンバス */
+.particle-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
 .hero-container {
   height: 100%;
   display: flex;
+  position: relative;
+  z-index: 2;
   align-items: center;
   padding: 32px 16px;
 }
