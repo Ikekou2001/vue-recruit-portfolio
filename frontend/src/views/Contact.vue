@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { Icon } from '@iconify/vue'
 import { ref } from 'vue'
+import { submitContactForm } from '@/services/contactApi'
 
 const name = ref('')
 const email = ref('')
@@ -9,6 +10,7 @@ const attachments = ref<File[]>([])
 const isDragging = ref(false)
 const isSubmitting = ref(false)
 const submitSuccess = ref(false)
+const submitError = ref<string | null>(null)
 const fileInput = ref<HTMLInputElement | null>(null)
 
 const handleFileSelect = (event: Event) => {
@@ -52,27 +54,32 @@ const formatFileSize = (bytes: number): string => {
 
 const handleSubmit = async () => {
   isSubmitting.value = true
+  submitError.value = null
   
-  // TODO: Implement API call to Azure Functions
-  // 実装予定:
-  // - エンドポイント: POST /api/contact (Azure Functions HTTP Trigger)
-  // - リクエストボディ: { name, email, message, attachments }
-  // - 送信先: contact@plumiume.com
-  // - メール送信: Azure Communication Services または SendGrid
-  // - 添付ファイル: Base64エンコードまたはAzure Blob Storage
-  
-  await new Promise(resolve => setTimeout(resolve, 1000))
-  submitSuccess.value = true
-  isSubmitting.value = false
-  
-  // Reset form
-  setTimeout(() => {
-    name.value = ''
-    email.value = ''
-    message.value = ''
-    attachments.value = []
-    submitSuccess.value = false
-  }, 3000)
+  try {
+    // Azure Functions APIを呼び出し
+    await submitContactForm({
+      name: name.value,
+      email: email.value,
+      message: message.value,
+      attachments: attachments.value.length > 0 ? attachments.value : undefined
+    })
+    
+    submitSuccess.value = true
+    
+    // Reset form
+    setTimeout(() => {
+      name.value = ''
+      email.value = ''
+      message.value = ''
+      attachments.value = []
+      submitSuccess.value = false
+    }, 3000)
+  } catch (error) {
+    submitError.value = error instanceof Error ? error.message : 'お問い合わせの送信に失敗しました'
+  } finally {
+    isSubmitting.value = false
+  }
 }
 </script>
 
@@ -194,6 +201,19 @@ const handleSubmit = async () => {
         >
           <v-alert-title>送信完了！</v-alert-title>
           お問い合わせありがとうございます。近日中にご返信いたします。
+        </v-alert>
+
+        <v-alert
+          v-if="submitError"
+          type="error"
+          variant="tonal"
+          class="mb-6"
+          rounded="lg"
+          closable
+          @click:close="submitError = null"
+        >
+          <v-alert-title>送信エラー</v-alert-title>
+          {{ submitError }}
         </v-alert>
 
         <v-card

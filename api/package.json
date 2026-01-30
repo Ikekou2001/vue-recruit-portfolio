@@ -5,8 +5,9 @@
   "scripts": {
     "build": "tsc",
     "watch": "tsc -w",
-    "prestart": "npm run build",
+    "prestart": "pnpm run build",
     "start": "func start",
+    "dev": "func start",
     "test": "echo \"No tests yet...\""
   },
   "dependencies": {

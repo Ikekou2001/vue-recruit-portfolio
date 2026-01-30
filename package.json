@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "dev": "pnpm --parallel -r dev",
+    "dev:api": "cd api && pnpm start",
+    "dev:frontend": "cd frontend && pnpm dev",
     "build": "pnpm -r build",
+    "start": "cd api && pnpm start",
     "test": "pnpm -r test",
     "lint": "pnpm -r lint"
   },

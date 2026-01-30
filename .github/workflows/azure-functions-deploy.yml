@@ -1,0 +1,50 @@
+# Azure Functions 自動デプロイ設定 (GitHub Actions)
+# Function App: plumiume-profile-api
+
+name: Deploy Azure Functions
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'api/**'
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 10
+
+      - name: Install dependencies
+        run: |
+          cd api
+          pnpm install --frozen-lockfile
+
+      - name: Build
+        run: |
+          cd api
+          pnpm run build
+
+      - name: Deploy to Azure Functions
+        uses: Azure/functions-action@v1
+        with:
+          app-name: 'plumiume-profile-api'
+          package: './api'
+          publish-profile: ${{ secrets.AZURE_FUNCTIONAPP_PUBLISH_PROFILE_PLUMIUME_PROFILE_API }}
+
+      - name: Deployment notification
+        if: success()
+        run: echo "✅ Azure Functions deployed successfully to plumiume-profile-api"
