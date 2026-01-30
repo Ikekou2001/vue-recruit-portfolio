@@ -89,6 +89,12 @@ const initParticles = () => {
 
 onMounted(() => {
   initParticles()
+  
+  // X.comタイムラインウィジェットのスクリプトを読み込み
+  const script = document.createElement('script')
+  script.src = 'https://platform.twitter.com/widgets.js'
+  script.async = true
+  document.body.appendChild(script)
 })
 
 onUnmounted(() => {
@@ -256,11 +262,31 @@ const features = [
           最新の投稿
         </h2>
       </v-col>
-      <v-col cols="12" md="8" offset-md="2" lg="6" offset-lg="3">
+      
+      <!-- 固定ポスト -->
+      <v-col cols="12" md="6">
         <v-card elevation="2" rounded="lg" class="pa-4">
+          <h3 class="text-h6 font-weight-bold mb-4 text-center">ピン留め投稿</h3>
           <div class="tweet-container">
-            <!-- ツイートIDを指定してください -->
             <Tweet tweet-id="2012144255079522690" :theme="tweetTheme" />
+          </div>
+        </v-card>
+      </v-col>
+      
+      <!-- 埋め込みタイムライン -->
+      <v-col cols="12" md="6">
+        <v-card elevation="2" rounded="lg" class="pa-4">
+          <h3 class="text-h6 font-weight-bold mb-4 text-center">タイムライン</h3>
+          <div class="timeline-container">
+            <a 
+              class="twitter-timeline" 
+              data-height="500"
+              data-theme="light"
+              data-chrome="noheader nofooter noborders"
+              href="https://x.com/plumiiume?ref_src=twsrc%5Etfw"
+            >
+              Loading...
+            </a>
           </div>
         </v-card>
       </v-col>
@@ -384,5 +410,12 @@ const features = [
   justify-content: center;
   align-items: center;
   min-height: 400px;
+}
+
+.timeline-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 500px;
 }
 </style>

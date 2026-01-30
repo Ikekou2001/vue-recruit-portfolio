@@ -1,3 +1,4 @@
-package:
+packages:
   - 'frontend'
   - 'api'
+  - 'slidev'

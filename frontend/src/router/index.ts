@@ -31,56 +31,62 @@ const routes: RouteRecordRaw[] = [
   {
     path: '/_test',
     name: 'Test',
-    component: () => import('@/views/Test.vue'),
+    component: () => import('@/views/_verify/Test.vue'),
     meta: { title: 'VContainer fluid 検証' + title_base }
   },
+  // {
+  //   path: '/_fluid_flexbox',
+  //   name: 'FluidFlexbox',
+  //   component: () => import('@/views/_verify/FluidFlexbox.vue'),
+  //   meta: { title: 'Flexbox min-width 検証' + title_base }
+  // },
+  // {
+  //   path: '/_negative_margin',
+  //   name: 'NegativeMargin',
+  //   component: () => import('@/views/_verify/NegativeMargin.vue'),
+  //   meta: { title: 'v-row ネガティブマージン検証' + title_base }
+  // },
+  // {
+  //   path: '/_verify_container',
+  //   name: 'VerifyContainer',
+  //   component: () => import('@/views/_verify/VerifyContainer.vue'),
+  //   meta: { title: 'v-container 検証' + title_base }
+  // },
+  // {
+  //   path: '/_verify_row',
+  //   name: 'VerifyRow',
+  //   component: () => import('@/views/_verify/VerifyRow.vue'),
+  //   meta: { title: 'v-row 検証' + title_base }
+  // },
+  // {
+  //   path: '/_verify_col',
+  //   name: 'VerifyCol',
+  //   component: () => import('@/views/_verify/VerifyCol.vue'),
+  //   meta: { title: 'v-col 検証' + title_base }
+  // },
+  // {
+  //   path: '/_verify_card',
+  //   name: 'VerifyCard',
+  //   component: () => import('@/views/_verify/VerifyCard.vue'),
+  //   meta: { title: 'v-card 検証' + title_base }
+  // },
+  // {
+  //   path: '/_verify_img',
+  //   name: 'VerifyImg',
+  //   component: () => import('@/views/_verify/VerifyImg.vue'),
+  //   meta: { title: 'v-img 検証' + title_base }
+  // },
+  // {
+  //   path: '/_verify_expansion_panels',
+  //   name: 'VerifyExpansionPanels',
+  //   component: () => import('@/views/_verify/VerifyExpansionPanels.vue'),
+  //   meta: { title: 'v-expansion-panels 検証' + title_base }
+  // },
   {
-    path: '/_fluid_flexbox',
-    name: 'FluidFlexbox',
-    component: () => import('@/views/FluidFlexbox.vue'),
-    meta: { title: 'Flexbox min-width 検証' + title_base }
-  },
-  {
-    path: '/_negative_margin',
-    name: 'NegativeMargin',
-    component: () => import('@/views/NegativeMargin.vue'),
-    meta: { title: 'v-row ネガティブマージン検証' + title_base }
-  },
-  {
-    path: '/_verify_container',
-    name: 'VerifyContainer',
-    component: () => import('@/views/VerifyContainer.vue'),
-    meta: { title: 'v-container 検証' + title_base }
-  },
-  {
-    path: '/_verify_row',
-    name: 'VerifyRow',
-    component: () => import('@/views/VerifyRow.vue'),
-    meta: { title: 'v-row 検証' + title_base }
-  },
-  {
-    path: '/_verify_col',
-    name: 'VerifyCol',
-    component: () => import('@/views/VerifyCol.vue'),
-    meta: { title: 'v-col 検証' + title_base }
-  },
-  {
-    path: '/_verify_card',
-    name: 'VerifyCard',
-    component: () => import('@/views/VerifyCard.vue'),
-    meta: { title: 'v-card 検証' + title_base }
-  },
-  {
-    path: '/_verify_img',
-    name: 'VerifyImg',
-    component: () => import('@/views/VerifyImg.vue'),
-    meta: { title: 'v-img 検証' + title_base }
-  },
-  {
-    path: '/_verify_expansion_panels',
-    name: 'VerifyExpansionPanels',
-    component: () => import('@/views/VerifyExpansionPanels.vue'),
-    meta: { title: 'v-expansion-panels 検証' + title_base }
+    path: '/:pathMatch(.*)*',
+    name: 'NotFound',
+    component: () => import('@/views/NotFound.vue'),
+    meta: { title: 'ページが見つかりません' + title_base }
   }
 ]
 

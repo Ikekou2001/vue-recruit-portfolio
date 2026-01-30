@@ -32,22 +32,22 @@ const techStacks: TechStack[] = [
   { name: 'C/C++', category: 'backend', icon: { type: 'si', name: 'cplusplus' }, color: '#00599C', level: 'intermediate', description: '競技プログラミング', years: 3 },
   
   // Frontend (Advanced/Intermediate)
-  { name: 'HTML', category: 'frontend', icon: { type: 'si', name: 'html5' }, color: '#E34F26', level: 'advanced', description: 'フロントエンド三銃士　太郎', years: 3 },
-  { name: 'CSS', category: 'frontend', icon: { type: 'si', name: 'css3' }, color: '#1572B6', level: 'intermediate', description: 'フロントエンド三銃士　次郎', years: 3 },
-  { name: 'JavaScript', category: 'frontend', icon: { type: 'si', name: 'javascript' }, color: '#F7DF1E', level: 'advanced', description: 'フロントエンド三銃士　三郎', years: 3 },
-  { name: 'TypeScript', category: 'frontend', icon: { type: 'si', name: 'typescript' }, color: '#3178c6', level: 'advanced', description: 'IDEフレンドリー', years: 1 },
-  { name: 'Vue.js', category: 'frontend', icon: { type: 'si', name: 'vuedotjs' }, color: '#42b883', level: 'advanced', description: 'モダンフレームワーク　嫌い' },
-  { name: 'Next.js', category: 'frontend', icon: { type: 'si', name: 'nextdotjs' }, color: '#000000', level: 'intermediate', description: 'モダンフレームワーク　好き' },
-  { name: 'bootstrap', category: 'frontend', icon: { type: 'si', name: 'bootstrap' }, color: '#7952B3', level: 'intermediate', description: '初めて触ったWeb系フレームワーク', years: 2 },
-  { name: 'Vuetify', category: 'frontend', icon: { type: 'si', name: 'vuetify' }, color: '#1867c0', level: 'intermediate', description: 'Vueについてきた' },
-  { name: 'Vite', category: 'frontend', icon: { type: 'si', name: 'vite' }, color: '#646cff', level: 'intermediate', description: 'Vueについてきた' },
+  { name: 'HTML', category: 'frontend', icon: { type: 'si', name: 'html5' }, color: '#E34F26', level: 'intermediate', description: 'フロントエンド三銃士　太郎', years: 3 },
+  { name: 'CSS', category: 'frontend', icon: { type: 'si', name: 'css3' }, color: '#1572B6', level: 'beginner', description: 'フロントエンド三銃士　次郎', years: 3 },
+  { name: 'JavaScript', category: 'frontend', icon: { type: 'si', name: 'javascript' }, color: '#F7DF1E', level: 'intermediate', description: 'フロントエンド三銃士　三郎', years: 3 },
+  { name: 'TypeScript', category: 'frontend', icon: { type: 'si', name: 'typescript' }, color: '#3178c6', level: 'intermediate', description: 'IDEフレンドリー', years: 1 },
+  { name: 'Vue.js', category: 'frontend', icon: { type: 'si', name: 'vuedotjs' }, color: '#42b883', level: 'intermediate', description: 'モダンフレームワーク　嫌い' },
+  { name: 'Next.js', category: 'frontend', icon: { type: 'si', name: 'nextdotjs' }, color: '#000000', level: 'beginner', description: 'モダンフレームワーク　好き' },
+  { name: 'bootstrap', category: 'frontend', icon: { type: 'si', name: 'bootstrap' }, color: '#7952B3', level: 'beginner', description: '初めて触ったWeb系フレームワーク', years: 2 },
+  { name: 'Vuetify', category: 'frontend', icon: { type: 'si', name: 'vuetify' }, color: '#1867c0', level: 'beginner', description: 'Vueについてきた' },
+  { name: 'Vite', category: 'frontend', icon: { type: 'si', name: 'vite' }, color: '#646cff', level: 'beginner', description: 'Vueについてきた' },
   
   // DevOps & Cloud
   { name: 'Docker', category: 'devops', icon: { type: 'si', name: 'docker' }, color: '#2496ed', level: 'advanced', description: '便利なサンドボックス' },
   { name: 'Git', category: 'devops', icon: { type: 'si', name: 'git' }, color: '#f05032', level: 'expert', description: 'もうインフラ' },
   { name: 'GitHub Actions', category: 'devops', icon: { type: 'si', name: 'githubactions' }, color: '#2088ff', level: 'intermediate', description: 'テスト自動化のお試し' },
   { name: 'Azure', category: 'devops', icon: { type: 'si', name: 'microsoftazure' }, color: '#0078d4', level: 'intermediate', description: 'AWS逆張り' },
-  { name: 'Azure Functions', category: 'backend', icon: { type: 'si', name: 'azurefunctions' }, color: '#0078d4', level: 'intermediate', description: '一番簡単では' },
+  { name: 'Azure Functions', category: 'backend', icon: { type: 'si', name: 'azurefunctions' }, color: '#0078d4', level: 'beginner', description: '一番簡単では' },
   { name: 'Ubuntu', category: 'devops', icon: { type: 'si', name: 'ubuntu' }, color: '#E95420', level: 'intermediate', description: 'コミュニティ活発' },
   { name: 'Bash', category: 'devops', icon: { type: 'si', name: 'gnubash' }, color: '#4EAA25', level: 'advanced', description: '基本スキル' },
   
