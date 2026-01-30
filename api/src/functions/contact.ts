@@ -32,6 +32,7 @@ const corsHeaders = {
 
 export async function contact(request: HttpRequest, context: InvocationContext): Promise<HttpResponseInit> {
     context.log(`Contact form submission received from ${request.url}`);
+    context.log(`Deployment verified at ${new Date().toISOString()}`);
 
     // CORS preflight対応
     if (request.method === 'OPTIONS') {
