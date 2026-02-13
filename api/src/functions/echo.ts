@@ -62,9 +62,9 @@ export async function echo(request: HttpRequest, context: InvocationContext): Pr
     }
 }
 
-app.http('_echo', {
+app.http('echo', {
     methods: ['GET', 'POST', 'OPTIONS'],
     authLevel: 'anonymous',
-    route: '_echo',
+    route: 'echo',
     handler: echo
 });

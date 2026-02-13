@@ -4,7 +4,7 @@
   "description": "Technical Portfolio with Vue.js and Azure Functions",
   "main": "index.js",
   "scripts": {
-    "dev": "pnpm --parallel -r dev",
+    "dev": "pnpm --parallel --filter frontend --filter api -r dev",
     "dev:api": "cd api && pnpm start",
     "dev:frontend": "cd frontend && pnpm dev",
     "build": "pnpm -r build",
@@ -24,10 +24,5 @@
   "packageManager": "pnpm@10.22.0",
   "dependencies": {
     "create-vite": "^8.2.0"
-  },
-  "pnpm": {
-    "overrides": {
-      "rollup": "4.32.1"
-    }
   }
 }

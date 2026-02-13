@@ -2,6 +2,7 @@
   "name": "api",
   "version": "1.0.0",
   "description": "Azure Functions API for Vue Recruit Portfolio",
+  "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
     "watch": "tsc -w",

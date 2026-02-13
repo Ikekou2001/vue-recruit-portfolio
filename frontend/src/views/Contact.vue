@@ -185,6 +185,37 @@ const handleSubmit = async () => {
       </v-col>
     </v-row>
 
+    <!-- オンラインミーティング予約 -->
+    <v-row class="mb-12 justify-center">
+      <v-col cols="12">
+        <h2 class="text-h4 font-weight-bold mb-6 text-center">
+          オンラインミーティング予約
+        </h2>
+        <p class="text-h6 text-medium-emphasis text-center mb-6">
+          面談やカジュアル面談のご予約はこちらから
+        </p>
+      </v-col>
+      
+      <!-- Jicoo -->
+      <v-col cols="12" sm="8" md="6" lg="4">
+        <v-card
+          class="contact-card text-center pa-8 h-100"
+          elevation="3"
+          hover
+          rounded="lg"
+          href="https://www.jicoo.com/t/cWCe08UIPg6K/f/cF-_Jc6XnmJM"
+          target="_blank"
+        >
+          <Icon icon="mdi:calendar-clock" width="64" height="64" class="mb-4" style="color: #F26457;" />
+          <v-card-title class="text-h5 font-weight-bold mb-2">Jicooで予約</v-card-title>
+          <v-card-text class="text-body-1">
+            カレンダーから空き時間を選択して、<br>
+            オンラインミーティングを予約できます
+          </v-card-text>
+        </v-card>
+      </v-col>
+    </v-row>
+
     <!-- お問い合わせフォーム -->
     <v-row>
       <v-col cols="12" md="8" offset-md="2" lg="6" offset-lg="3">

@@ -1,0 +1,9 @@
+{
+  "default": {
+    "lengthInMinutes": 60,
+    "suchedulingType": "collective",
+    "lengthInMinutesOptions": [30, 60, 90, 120, 150, 180],
+    "description": "これはデフォルトのイベントタイプです。編集するか、新しいものを作成できます。"
+
+  }
+}
